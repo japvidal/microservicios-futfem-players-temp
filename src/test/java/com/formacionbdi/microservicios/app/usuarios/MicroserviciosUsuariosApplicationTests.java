@@ -1,17 +1,15 @@
-package com.formacionbdi.microservicios.app.usuarios;
+package com.microservicios.app.futfem.players;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
-@SpringBootTest
+@SpringBootTest(classes = MicroserviciosFutfemPlayersTempApplication.class)
 @ActiveProfiles("test")
 class MicroserviciosUsuariosApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void contextLoads() {
+    }
 
 }
-
-
