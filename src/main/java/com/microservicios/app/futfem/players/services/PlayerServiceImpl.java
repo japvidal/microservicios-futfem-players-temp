@@ -6,6 +6,8 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.microservicios.app.common.services.CommonServiceImpl;
@@ -15,6 +17,7 @@ import com.microservicios.app.futfem.players.models.repository.PlayerRepository;
 @Service
 public class PlayerServiceImpl extends CommonServiceImpl<Player, PlayerRepository> implements PlayerService {
 
+	private static final Logger log = LoggerFactory.getLogger(PlayerServiceImpl.class);
 	private static final DateTimeFormatter BIRTHDATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
 	@Override
@@ -40,6 +43,7 @@ public class PlayerServiceImpl extends CommonServiceImpl<Player, PlayerRepositor
 	}
 
 	private String normalize(String value) {
+		log.debug("Init method PlayerServiceImpl.normalize");
 		if (value == null) {
 			return null;
 		}
