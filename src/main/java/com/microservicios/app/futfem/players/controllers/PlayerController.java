@@ -5,16 +5,33 @@ import java.util.Optional;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.microservicios.app.common.controllers.CommonController;
+import com.microservicios.app.futfem.players.controllers.dto.PlayerLookupRequest;
 import com.microservicios.app.futfem.players.models.entity.Player;
 import com.microservicios.app.futfem.players.services.PlayerService;
 
 @RestController
 public class PlayerController extends CommonController<Player, PlayerService>{
+
+	@PostMapping("/getIdByName")
+	public ResponseEntity<?> getIdByName(@RequestBody PlayerLookupRequest request) {
+		Optional<Player> player = service.findByNameSurnameAndBirthdate(
+			request.getName(),
+			request.getSurname(),
+			request.getBirthdate()
+		);
+
+		if (player.isEmpty()) {
+			return ResponseEntity.notFound().build();
+		}
+
+		return ResponseEntity.ok(player.get().getId());
+	}
 	
 	@PutMapping("/{id}")
 	public ResponseEntity<?> editar(@RequestBody Player player, @PathVariable Long id){
