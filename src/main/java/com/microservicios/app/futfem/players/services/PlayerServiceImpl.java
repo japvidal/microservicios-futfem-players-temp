@@ -43,7 +43,7 @@ public class PlayerServiceImpl extends CommonServiceImpl<Player, PlayerRepositor
 	}
 
 	private String normalize(String value) {
-		log.debug("Init method PlayerServiceImpl.normalize");
+		log.info("Init method PlayerServiceImpl.normalize");
 		if (value == null) {
 			return null;
 		}
