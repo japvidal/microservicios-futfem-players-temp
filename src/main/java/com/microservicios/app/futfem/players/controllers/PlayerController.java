@@ -23,6 +23,7 @@ public class PlayerController extends CommonController<Player, PlayerService>{
 		Optional<Player> player = service.findByNameSurnameAndBirthdate(
 			request.getName(),
 			request.getSurname(),
+			request.getNickname(),
 			request.getBirthdate()
 		);
 

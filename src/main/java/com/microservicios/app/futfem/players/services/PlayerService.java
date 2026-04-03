@@ -7,5 +7,5 @@ import com.microservicios.app.futfem.players.models.entity.Player;
 
 public interface PlayerService extends CommonService<Player> {
 
-	Optional<Player> findByNameSurnameAndBirthdate(String name, String surname, String birthdate);
+	Optional<Player> findByNameSurnameAndBirthdate(String name, String surname, String nickname, String birthdate);
 }

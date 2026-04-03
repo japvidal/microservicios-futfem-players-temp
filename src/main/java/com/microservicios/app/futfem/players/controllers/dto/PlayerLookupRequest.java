@@ -4,6 +4,7 @@ public class PlayerLookupRequest {
 
 	private String name;
 	private String surname;
+	private String nickname;
 	private String birthdate;
 
 	public String getName() {
@@ -28,5 +29,13 @@ public class PlayerLookupRequest {
 
 	public void setBirthdate(String birthdate) {
 		this.birthdate = birthdate;
+	}
+
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 }
