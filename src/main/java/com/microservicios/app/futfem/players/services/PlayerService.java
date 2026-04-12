@@ -4,8 +4,12 @@ import java.util.Optional;
 
 import com.microservicios.app.common.services.CommonService;
 import com.microservicios.app.futfem.players.models.entity.Player;
+import com.microservicios.app.futfem.players.services.dto.PlayerPageResponse;
+import com.microservicios.app.futfem.players.services.dto.PlayerSearchRequest;
 
 public interface PlayerService extends CommonService<Player> {
 
 	Optional<Player> findByNameSurnameAndBirthdate(String name, String surname, String nickname, String birthdate);
+
+	PlayerPageResponse searchPlayers(PlayerSearchRequest request);
 }

@@ -1,6 +1,7 @@
 package com.microservicios.app.futfem.players.models.entity;
 
 import java.util.Date;
+import java.util.Locale;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -56,7 +57,7 @@ public class Player {
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.name = upper(name);
 	}
 
 	public String getSurname() {
@@ -64,7 +65,7 @@ public class Player {
 	}
 
 	public void setSurname(String surname) {
-		this.surname = surname;
+		this.surname = upper(surname);
 	}
 
 	public String getNickname() {
@@ -72,7 +73,7 @@ public class Player {
 	}
 
 	public void setNickname(String nickname) {
-		this.nickname = nickname;
+		this.nickname = upper(nickname);
 	}
 
 	public String getPosition() {
@@ -80,7 +81,7 @@ public class Player {
 	}
 
 	public void setPosition(String position) {
-		this.position = position;
+		this.position = upper(position);
 	}
 
 	public String getCountry() {
@@ -88,7 +89,7 @@ public class Player {
 	}
 
 	public void setCountry(String country) {
-		this.country = country;
+		this.country = upper(country);
 	}
 
 	public Date getBirthdate() {
@@ -105,6 +106,10 @@ public class Player {
 
 	public void setUrlpic(String urlpic) {
 		this.urlpic = urlpic;
+	}
+
+	private String upper(String value) {
+		return value == null ? null : value.toUpperCase(Locale.ROOT);
 	}
 
 	public int getVelocidad() {
